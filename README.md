@@ -41,31 +41,48 @@ Tasleem connects buyers, sellers, and renters through a secure marketplace with 
 
 ## System Architecture
 
-The platform follows a **Layered RESTful Architecture** with clear separation of concerns:
-┌─────────────────────────────────────────────┐
-│        Client Layer   
+Tasleem follows a **Layered RESTful Architecture** that ensures scalability, maintainability, and separation of concerns across all system components.
 
-  Mobile App, Web App, Admin Dashboard
-├─────────────────────────────────────────────┤
-│  API Gateway    
- Laravel Sanctum, Middleware, Rate Limiting
-├─────────────────────────────────────────────┤
-│  Controllers   
-  18 RESTful Controllers
-├─────────────────────────────────────────────┤
-│  Services       
- OrderService, WalletService, Notify, AIRecommendationService
-├─────────────────────────────────────────────┤
-│  Models (ORM)   
-15 Eloquent Models with Relationships
-├─────────────────────────────────────────────┤
-│  Data Storage   
- MySQL Database, File Storage (Local/S3)
-├─────────────────────────────────────────────┤
-│  External APIs  
- AI Engine, Payment Gateway, Firebase, Email, SMS
-└─────────────────────────────────────────────┘
+```mermaid
+flowchart TD
 
+    A[Client Layer<br/>Mobile App<br/>Web App<br/>Admin Dashboard]
+
+    B[API Gateway Layer<br/>Laravel Sanctum<br/>Middleware<br/>Rate Limiting]
+
+    C[Controller Layer<br/>18 RESTful Controllers]
+
+    D[Service Layer<br/>Order Service<br/>Wallet Service<br/>Notification Service<br/>AI Recommendation Service]
+
+    E[Domain Layer<br/>15 Eloquent Models<br/>Business Rules & Relationships]
+
+    F[Data Layer<br/>MySQL Database<br/>File Storage Local/S3]
+
+    G[External Services<br/>AI Engine<br/>Payment Gateway<br/>Firebase FCM<br/>Email & SMS Providers]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+
+    D -.-> G
+```
+
+### Architectural Layers
+
+| Layer                 | Responsibility                                                                                             |
+| --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Client Layer**      | Provides user interfaces through mobile, web, and administration applications.                             |
+| **API Gateway Layer** | Handles authentication, authorization, request validation, and rate limiting.                              |
+| **Controller Layer**  | Exposes RESTful endpoints and coordinates incoming requests.                                               |
+| **Service Layer**     | Implements business logic, transaction handling, notifications, and AI integrations.                       |
+| **Domain Layer**      | Represents business entities using Eloquent models and manages relationships.                              |
+| **Data Layer**        | Stores application data, uploaded files, and transactional records.                                        |
+| **External Services** | Integrates with AI recommendation engines, payment providers, notification services, and third-party APIs. |
+
+```
+```
 
 ## Documentation Structure
 
