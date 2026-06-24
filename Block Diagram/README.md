@@ -14,7 +14,7 @@
 
 #### Suggested README Content
 
-```markdown
+
 # Block Diagram & System Architecture
 
 This folder contains the complete architectural documentation for the Tasleem platform, including block diagrams, data flow diagrams (DFD), and detailed data flow analysis.
@@ -61,26 +61,30 @@ The Tasleem platform is designed as a **RESTful API Architecture** with a clear 
 
 ## Seven-Layer Architecture
 
-## System Architecture
+Tasleem follows a **Layered RESTful Architecture** that separates presentation, business logic, data access, and external integrations into distinct layers.
 
-Tasleem follows a **Layered RESTful Architecture** that ensures scalability, maintainability, and separation of concerns across all system components.
+### System Architecture Diagram
+
+> **Note:** For the best viewing experience, open the SVG version of the architecture diagram.
+>
+> 📄 [View Full Architecture Diagram](System_Architecture_Diagram_HD.svg)
 
 
 flowchart TD
 
-    A[Client Layer<br/>Mobile App<br/>Web App<br/>Admin Dashboard]
+    A["Client Layer<br/>Mobile App<br/>Web App<br/>Admin Dashboard"]
 
-    B[API Gateway Layer<br/>Laravel Sanctum<br/>Middleware<br/>Rate Limiting]
+    B["API Gateway Layer<br/>Laravel Sanctum<br/>Middleware<br/>Rate Limiting"]
 
-    C[Controller Layer<br/>18 RESTful Controllers]
+    C["Controller Layer<br/>18 RESTful Controllers"]
 
-    D[Service Layer<br/>Order Service<br/>Wallet Service<br/>Notification Service<br/>AI Recommendation Service]
+    D["Service Layer<br/>Order Service<br/>Wallet Service<br/>Notification Service<br/>AI Recommendation Service"]
 
-    E[Domain Layer<br/>15 Eloquent Models<br/>Business Rules & Relationships]
+    E["Domain Layer<br/>15 Eloquent Models<br/>Business Rules & Relationships"]
 
-    F[Data Layer<br/>MySQL Database<br/>File Storage Local/S3]
+    F["Data Layer<br/>MySQL Database<br/>File Storage (Local/S3)"]
 
-    G[External Services<br/>AI Engine<br/>Payment Gateway<br/>Firebase FCM<br/>Email & SMS Providers]
+    G["External Services<br/>AI Engine<br/>Payment Gateway<br/>Firebase FCM<br/>Email & SMS Providers"]
 
     A --> B
     B --> C
@@ -103,8 +107,6 @@ flowchart TD
 | **Data Layer**        | Stores application data, uploaded files, and transactional records.                                        |
 | **External Services** | Integrates with AI recommendation engines, payment providers, notification services, and third-party APIs. |
 
-```
-```
 
 
 
