@@ -106,3 +106,74 @@ User, Product, Category, ProductImage, Order, Rental, Offer, Payment, Review, Ca
 ---
 
 ## 3. System Architecture Workflow
+
+Step 1: Client sends HTTP request to API
+↓
+Step 2: API Gateway validates token, executes middleware
+↓
+Step 3: Request routed to appropriate Controller
+↓
+Step 4: Controller validates input, invokes Service
+↓
+Step 5: Service executes business logic, interacts with Models
+↓
+Step 6: Models communicate with Database, retrieve/update data
+↓
+Step 7: Service communicates with External Services if needed
+↓
+Step 8: Response returned to Controller
+↓
+Step 9: Controller formats response, sends to Client
+
+
+---
+
+## 4. Architectural Benefits
+
+| Benefit | Description |
+|---------|-------------|
+| **Separation of Concerns** | Each layer has a single responsibility; cleaner code, easier debugging |
+| **Scalability** | Stateless APIs enable horizontal scaling; services deploy independently |
+| **Maintainability** | Business logic isolated from controllers; easier updates, lower coupling |
+| **Security** | Sanctum auth, role-based access, rate limiting, request validation, audit logging |
+| **Extensibility** | New payment methods, AI algorithms, notification channels integrate easily |
+
+---
+
+## 5. Architectural Evaluation
+
+### Strengths ✅
+- Clear Layered Architecture
+- RESTful API Design
+- Service Layer Pattern implementation
+- Secure Authentication (Sanctum)
+- Modular Components
+- AI Microservice Integration
+- Escrow Wallet Payment Model
+- Comprehensive Logging System
+
+### Improvement Opportunities 📈
+| Priority | Enhancement | Impact |
+|----------|-------------|--------|
+| High | Database transactions (`DB::transaction()`) | Data consistency |
+| High | Redis caching layer | Performance |
+| Medium | Queue-based notification processing | Scalability |
+| Medium | Full Repository Pattern implementation | Testability |
+| Medium | Constructor Dependency Injection | Maintainability |
+| Low | Advanced API versioning strategy | Evolution |
+
+---
+
+## Architectural Characteristics Summary
+
+| Characteristic | Implementation |
+|----------------|----------------|
+| **API-First Design** | Entire system exposed via RESTful APIs |
+| **Token-Based Authentication** | Laravel Sanctum Bearer tokens |
+| **Service Layer** | Business logic isolated in 4 dedicated services |
+| **Microservice Integration** | External AI engine via REST API |
+| **Escrow Payments** | Wallet-based fund holding until completion |
+| **Audit Logging** | Comprehensive activity tracking |
+
+---
+
