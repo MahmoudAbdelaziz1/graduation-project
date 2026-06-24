@@ -65,7 +65,7 @@ The Tasleem platform is designed as a **RESTful API Architecture** with a clear 
 
 Tasleem follows a **Layered RESTful Architecture** that ensures scalability, maintainability, and separation of concerns across all system components.
 
-```mermaid
+
 flowchart TD
 
     A[Client Layer<br/>Mobile App<br/>Web App<br/>Admin Dashboard]
@@ -89,7 +89,7 @@ flowchart TD
     E --> F
 
     D -.-> G
-```
+
 
 ### Architectural Layers
 
